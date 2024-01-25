@@ -15,41 +15,40 @@ type dadosTransacao = {
   mediaPreco: string
 }
 
-async function getData() {
-  try {
-    const response = await axios.get(`https://...`)
-    const { result } = response.data
-    return result
-  } catch (error: any) {
-    throw new Error('Failed to fetch data')
-  }
-}
-
 export default async function Page() {
   const response = await axios.get(
     'https://nodejsreseco.onrender.com/lancamentoscalc/',
   )
 
   const result: dadosTransacao[] = await response.data
-  // console.log(result)
 
-  // const data = await getData()
+  const totalAcumulado = result.reduce(
+    (acc, item) => acc + parseFloat(item.valOperacao),
+    0,
+  )
+
   return (
     <div className="max-w-fit p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div>
+          <p className="text-lg font-bold mb-2 text-gray-500 dark:text-gray-400">
+            Valor Total Acumulado: {formatValor(totalAcumulado.toString())}
+          </p>
+        </div>
+
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th className="px-6 py-1 text-center">Data</th>
-              <th className="px-6 py-1 text-center">Operacao</th>
+              <th className="px-6 py-1 text-center">Operação</th>
               <th className="px-6 py-1 text-center">Ativo</th>
               <th className="px-6 py-1 text-center">Setor</th>
               <th className="px-6 py-1 text-center">Preço</th>
               <th className="px-6 py-1 text-center">Qtd</th>
-              <th className="px-6 py-1 text-center">V.operacao</th>
-              <th className="px-6 py-1 text-center">V.totalAC</th>
+              <th className="px-6 py-1 text-center">V. operação</th>
+              <th className="px-6 py-1 text-center">V. total AC</th>
               <th className="px-6 py-1 text-center">qtd Ac</th>
-              <th className="px-6 py-1 text-center">M.preço</th>
+              <th className="px-6 py-1 text-center">M. preço</th>
             </tr>
           </thead>
           <tbody>
