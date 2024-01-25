@@ -40,15 +40,15 @@ export default async function Page() {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th className="px-6 py-1 text-center">Data</th>
-              <th className="px-6 py-1 text-center">Operação</th>
-              <th className="px-6 py-1 text-center">Ativo</th>
-              <th className="px-6 py-1 text-center">Setor</th>
-              <th className="px-6 py-1 text-center">Preço</th>
+              <th className="px-6 py-1 text-left">Operação</th>
+              <th className="px-6 py-1 text-left">Ativo</th>
+              <th className="px-6 py-1 text-left">Setor</th>
+              <th className="px-6 py-1 text-right">Preço</th>
               <th className="px-6 py-1 text-center">Qtd</th>
-              <th className="px-6 py-1 text-center">V. operação</th>
-              <th className="px-6 py-1 text-center">V. total AC</th>
+              <th className="px-6 py-1 text-right">V. operação</th>
+              <th className="px-6 py-1 text-right">V. total AC</th>
               <th className="px-6 py-1 text-center">qtd Ac</th>
-              <th className="px-6 py-1 text-center">M. preço</th>
+              <th className="px-6 py-1 text-right">M. preço</th>
             </tr>
           </thead>
           <tbody>
@@ -63,7 +63,9 @@ export default async function Page() {
                 <td className="px-6 py-1">{item.operacao}</td>
                 <td className="px-6 py-1">{item.ativo}</td>
                 <td className="px-6 py-1">{item.setor}</td>
-                <td className="px-6 py-1 text-right">{item.preco}</td>
+                <td className="px-6 py-1 text-right">
+                  {formatValor(item.preco)}
+                </td>
                 <td className="px-6 py-1 text-center">{item.quantidade}</td>
                 <td className="px-6 py-1 text-right">
                   {formatValor(item.valOperacao)}

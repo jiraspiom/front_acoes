@@ -10,7 +10,8 @@ export function formatStringToDateLocal(dataString: string) {
 
 export function formatValor(valorString: string) {
   const valorNumerico = parseFloat(valorString)
-  return valorNumerico.toLocaleString('en-US', {
+  // en-US
+  return valorNumerico.toLocaleString('pt-BR', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })

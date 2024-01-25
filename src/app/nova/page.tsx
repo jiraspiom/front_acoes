@@ -45,19 +45,26 @@ export default function Home() {
   return (
     <div>
       <h1>criar</h1>
-      <form onSubmit={handleSubmit(handleForm)}>
+      <form onSubmit={handleSubmit(handleForm)} className="max-w-sm mx-auto">
         <div>
           <div>
             <label>DATA: </label>
           </div>
-          <input type="date" {...register('data')} className="mb-4" />
+          <input
+            type="date"
+            {...register('data')}
+            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
           {errors.data?.message && <p>{errors.data.message}</p>}
         </div>
         <div>
           <div>
             <label>OPERAÇÃO: </label>
           </div>
-          <select {...register('operacao')} className="mb-4">
+          <select
+            {...register('operacao')}
+            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
             <option value="">Selecione operação</option>
             <option value="COMPRA">Compra</option>
             <option value="VENDA">Venda</option>
@@ -72,7 +79,7 @@ export default function Home() {
             type="text"
             {...register('ativo')}
             placeholder="Ativo ex: PETRA3, MXRF11"
-            className="mb-4"
+            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
           {errors.ativo?.message && <p>{errors.ativo.message}</p>}
         </div>
@@ -81,7 +88,10 @@ export default function Home() {
           <div>
             <label>Setor: </label>
           </div>
-          <select {...register('setor')} className="mb-4">
+          <select
+            {...register('setor')}
+            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
             <option value="">Selecione o setor</option>
             {setores.map((option) => (
               <option key={option.value} value={option.value}>
@@ -99,7 +109,7 @@ export default function Home() {
             type="text"
             {...register('quantidade')}
             placeholder="Quantidade"
-            className="mb-4"
+            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
           {errors.quantidade?.message && <p>{errors.quantidade.message}</p>}
         </div>
@@ -112,12 +122,17 @@ export default function Home() {
             type="text"
             {...register('preco')}
             placeholder="Valor"
-            className="mb-4"
+            className="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
           {errors.preco?.message && <p>{errors.preco.message}</p>}
         </div>
 
-        <button type="submit">enviar</button>
+        <button
+          type="submit"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          enviar
+        </button>
       </form>
     </div>
   )
