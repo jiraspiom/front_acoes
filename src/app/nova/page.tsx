@@ -26,7 +26,7 @@ const schemaForm = z
 
 type FormProps = z.infer<typeof schemaForm>
 
-export default function Home() {
+export default function Nova() {
   const {
     register,
     handleSubmit,
